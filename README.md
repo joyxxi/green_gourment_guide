@@ -4,6 +4,7 @@ This file illustrates the basic structure of the Green Gourmet Guide project.
 
 ## Project Directory Structure
 
+```bash
 green_gourment_guide/
 |
 |--- data/
@@ -20,6 +21,7 @@ green_gourment_guide/
 |--- tests/
 |
 |--- STRUCTURE.md
+```
 
 
 ## Directory Descriptions
