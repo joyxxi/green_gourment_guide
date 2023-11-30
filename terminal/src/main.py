@@ -16,6 +16,7 @@ def main():
     predicted_label = classification_model.image_classify(image_path)
 
     print(predicted_label)
+    # Get recipes
     recipes.print_recipes(1, predicted_label)
 
 
