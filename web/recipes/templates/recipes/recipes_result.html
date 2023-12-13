@@ -1,0 +1,26 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}Results{% endblock title %}
+
+{% block content %}
+    <br><br>
+    {% if recipes == null %}
+    <h2>Oopsie-daisy! We haven't cooked up any recipes like that yet!</h2>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-3 g-4 pl-4">
+        {% for recipe in recipes %}
+            <div class="col">
+                <div class="card text-center mb-3 mx-auto" style="width: 20rem;">
+                    <img src="{{ recipe.strMealThumb }}" class="card-img-top" alt="{{ recipe.strMeal }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.strMeal }}</h5>
+                        <a href="{% url 'recipes:recipe_detail' meal_id=recipe.idMeal %}" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+    
+
+{% endblock content %}

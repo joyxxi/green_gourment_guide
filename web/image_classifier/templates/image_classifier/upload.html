@@ -1,0 +1,22 @@
+{% extends 'recipes/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Upload File{% endblock title %}
+
+{% block content %}
+    <h2>Please upload your image!</h2>
+    <!-- Upload File -->
+<br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3" style="margin-left: 80px;>
+                {{ form.image.label_tag }}  <!-- Render the label -->
+                {{ form.image }}  <!-- Render the file input -->
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-right: 50px;">Upload</button>
+        </form>
+        
+    
+    
+      
+{% endblock content %}

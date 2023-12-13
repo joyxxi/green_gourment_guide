@@ -1,0 +1,13 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}result{% endblock title %}
+
+{% block content %}
+    {% if recipe %}
+    <h2 class="text-center">{{ recipe.0.strMeal }}</h2>
+    <img src="{{ recipe.0.strMealThumb }}" class="rounded mx-auto d-block" alt="{{ recipe.0.strMeal }}" style="width: 500px; height: 500px; object-fit: cover;">
+    <p style="padding: 0 40px;">Instructions: {{ recipe.0.strInstructions }}</p>
+{% else %}
+    <p>Recipe details not available.</p>
+{% endif %}
+{% endblock content %}

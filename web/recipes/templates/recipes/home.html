@@ -1,0 +1,24 @@
+{% extends 'recipes/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<br><br><br>
+<h1>Welcome to Green Gourmet Guide!</h1>
+<br><br>
+<h2>📸 Snap a Pic & Let's Search by Image!</h2>
+
+<br><br>
+
+<div class="d-grid gap-2 col-2 mx-auto">
+    <a class="btn btn-outline-warning" href="{% url 'image_classifier:upload_image' %}" role="button"
+    style="width: 200px; height: 60px; --bs-btn-font-size: 1.75rem; display: inline-block;"
+    >Upload</a>
+  </div>
+
+<br><br> 
+
+
+
+{% endblock content %}

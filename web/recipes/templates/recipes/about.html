@@ -1,0 +1,31 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+    <section id="about" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center">About Our Tool</h2>
+                    <p class="text-center mt-3">
+                        Hi! This is Joy! Welcome to Green Gourmet Guide!
+                    </p>
+                    <p class="text-center mt-3">
+                        Our tool identifies vegetables from your images and suggests delicious recipes to ignite your cooking passion.
+                    </p>
+
+                    <p class="text-center mt-2">
+                        Inspired by everyday grocery challenges, it's designed to simplify meal planning and enhance the cooking experience for novices and seasoned food enthusiasts alike. 
+                    </p>
+                    <p class="text-center mt-2">
+                        Special thanks to the <a href="https://www.themealdb.com/api.php" target="_blank">theMealDB API</a> and the <a href="https://huggingface.co/jazzmacedo/fruits-and-vegetables-detector-36" target="_blank">fruits-and-vegetables-detector-36</a> model for making this possible. 
+                        Explore our source code on <a href="https://github.com/joyxxi/green_gourmet_guide" target="_blank">GitHub</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock content %}

@@ -16,6 +16,8 @@ def main():
     predicted_label = classification_model.image_classify(image_path)
 
     print(predicted_label)
+    # TODO: Add some features like meal style
+
     # Get recipes
     recipes.print_recipes(1, predicted_label)
 
@@ -30,9 +32,3 @@ def valid_path(image_path):
 
 if __name__ == "__main__":
     main()
-
-"""
-print("#######################################")
-print("# Welcome to the Green Gourment Guide #")
-print("#######################################")
-"""

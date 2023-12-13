@@ -29,9 +29,9 @@ def get_recipes_by_id(id: str):
         return response.json()
     else:
         return None
+    
 
-
-def get_fixed_num_recipe_ids(num: int, recipes: dict) -> list:
+def get_fixed_num_recipes(num: int, recipes: dict) -> list:
     """
     Returns a list of random recipe ids from recipes dictionary. 
     If the number of meals in recipes are less than num, return a list of all meal ids.
@@ -42,12 +42,22 @@ def get_fixed_num_recipe_ids(num: int, recipes: dict) -> list:
         recipes: The recipes dictionary
 
     Example output:
-    ['52815', '52811', '52775']
+    [
+        {
+            "strMeal": "French Lentils With Garlic and Thyme",
+            "strMealThumb": "https://www.themealdb.com/images/media/meals/vwwspt1487394060.jpg",
+            "idMeal": "52815"
+        },
+        {
+            ......
+        }
+    ]
     """
     meal_ls = recipes["meals"]
     # No meal exists in recipes
     if not meal_ls:
-        raise ValueError("No meal exists in recipes.")
+        return None
+        # raise ValueError("No meal exists in recipes.")
 
     total_meal_num = len(meal_ls)
     # When meal numbers are less than num
@@ -56,11 +66,11 @@ def get_fixed_num_recipe_ids(num: int, recipes: dict) -> list:
     else:
         random_nums = random.sample(range(total_meal_num), num)
 
-    random_ids = []
+    random_recipes = []
     for num in random_nums:
-        random_ids.append(recipes["meals"][num]["idMeal"])
+        random_recipes.append(recipes["meals"][num])
 
-    return random_ids
+    return random_recipes
 
 
 def get_recipe_name(id: str) -> str:
@@ -81,10 +91,16 @@ def valid_id(id: str):
         raise ValueError("The id does not exist.")
 
 
-def print_recipes(num, label):
-    recipes = get_recipes_by_ingredient(label)
-    id_ls = get_fixed_num_recipe_ids(num, recipes)
-    for id in id_ls:
-        print(get_recipe_name(id))
-        print(get_recipe_instruction(id))
-        print("\n")
+def get_recipe_detail(id: str):
+    return get_recipes_by_id(id)["meals"]
+
+# def print_recipes(num, label):
+#     recipes = get_recipes_by_ingredient(label)
+#     id_ls = get_fixed_num_recipe_ids(num, recipes)
+#     for id in id_ls:
+#         print(get_recipe_name(id))
+#         print(get_recipe_instruction(id))
+#         print("\n")
+
+
+
