@@ -8,6 +8,9 @@ def home(request):
 
 
 def recipe_view(request, label):
+    """
+    This is the view for displaying the recipe results.
+    """
     all_recipes_by_ingredient = get_recipes.get_recipes_by_ingredient(label)
     display_recipes = get_recipes.get_fixed_num_recipes(3, all_recipes_by_ingredient)
 
@@ -18,9 +21,15 @@ def recipe_view(request, label):
 
 
 def about(request):
+    """
+    This is the view for about page.
+    """
     return render(request, "recipes/about.html")
 
 def recipe_detail_view(request, meal_id):
+    """"
+    This is the view for displaying recipe details.
+    """
     recipe = get_recipes.get_recipe_detail(meal_id)
 
     context = {
@@ -29,4 +38,3 @@ def recipe_detail_view(request, meal_id):
 
     print(context)
     return render(request, "recipes/recipe_detail.html", context)
-    

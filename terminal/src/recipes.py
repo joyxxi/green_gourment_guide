@@ -23,6 +23,10 @@ def get_recipes_by_ingredient(ingredient: str):
 
 
 def get_recipes_by_id(id: str):
+    """
+        Returns a dictionary of recipes based on provided id. 
+        Returns None if the request failed.
+    """
     url = f"https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -64,24 +68,33 @@ def get_fixed_num_recipe_ids(num: int, recipes: dict) -> list:
 
 
 def get_recipe_name(id: str) -> str:
-    """ Returns the meal name based on the meal id. """
+    """ 
+    Returns the meal name based on the meal id. 
+    """
     valid_id(id)
     return get_recipes_by_id(id)["meals"][0]["strMeal"]
 
 
 def get_recipe_instruction(id: str) -> str:
-    """ Returns the meal instruction based on the meal id."""
+    """ 
+    Returns the meal instruction based on the meal id.
+    """
     valid_id(id)
     return get_recipes_by_id(id)["meals"][0]["strInstructions"]
 
 
 def valid_id(id: str):
-    """ Raise an error when the id does not exist. """
+    """ 
+    Raise an error when the id does not exist. 
+    """
     if not get_recipes_by_id(id)["meals"]:
         raise ValueError("The id does not exist.")
 
 
 def print_recipes(num, label):
+    """ 
+    Print recipe information, including name and instructions. 
+    """
     recipes = get_recipes_by_ingredient(label)
     id_ls = get_fixed_num_recipe_ids(num, recipes)
     for id in id_ls:

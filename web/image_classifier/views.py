@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import ImageUploadForm
 from .classification_model import image_classify
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 import logging
 logger = logging.getLogger(__name__)
 
-# Create your views here.
 
 def uploaded_image(request):
+    """
+    This is the view for uploading image.
+    """
     if request.method == 'POST':
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
@@ -20,7 +20,3 @@ def uploaded_image(request):
         form = ImageUploadForm()
 
     return render(request, 'image_classifier/upload.html', {'form': form})
-
-
-def success(request):
-    return render(request, 'image_classifier/upload_success.html')

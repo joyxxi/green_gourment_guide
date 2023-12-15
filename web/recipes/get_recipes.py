@@ -94,13 +94,6 @@ def valid_id(id: str):
 def get_recipe_detail(id: str):
     return get_recipes_by_id(id)["meals"]
 
-# def print_recipes(num, label):
-#     recipes = get_recipes_by_ingredient(label)
-#     id_ls = get_fixed_num_recipe_ids(num, recipes)
-#     for id in id_ls:
-#         print(get_recipe_name(id))
-#         print(get_recipe_instruction(id))
-#         print("\n")
 
 
 

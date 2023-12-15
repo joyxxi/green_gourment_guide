@@ -11,6 +11,7 @@ import torchvision.transforms as transforms
 from transformers import AutoModelForImageClassification
 from PIL import Image
 
+
 def image_classify(image_path):
     # Load the saved model and tokenizer
     model = AutoModelForImageClassification.from_pretrained("jazzmacedo/fruits-and-vegetables-detector-36")
@@ -40,5 +41,3 @@ def image_classify(image_path):
     predicted_label = labels[predicted_idx]
 
     return predicted_label
-    # # Print the predicted label
-    # print("Detected label:", predicted_label)
